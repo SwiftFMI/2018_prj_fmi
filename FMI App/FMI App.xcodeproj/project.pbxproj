@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		748DEA5D21DE96D500AD8E70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */; };
+		748DEA5F21DE974F00AD8E70 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */; };
+		748DEA6121DEBDD900AD8E70 /* CourseTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */; };
+		748DEA6321DEBE8000AD8E70 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */; };
+		748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */; };
+		748DEA6721DEBF1700AD8E70 /* SingleLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */; };
 		74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B26FC021DA4D5500AAB239 /* AppDelegate.swift */; };
-		74B26FC321DA4D5500AAB239 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B26FC221DA4D5500AAB239 /* ViewController.swift */; };
 		74B26FC621DA4D5500AAB239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC421DA4D5500AAB239 /* Main.storyboard */; };
 		74B26FC821DA4D5800AAB239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC721DA4D5800AAB239 /* Assets.xcassets */; };
 		74B26FCB21DA4D5800AAB239 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */; };
@@ -16,9 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTypesViewController.swift; sourceTree = "<group>"; };
+		748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
+		748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLectureViewController.swift; sourceTree = "<group>"; };
 		74B26FBD21DA4D5500AAB239 /* FMI App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FMI App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B26FC021DA4D5500AAB239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74B26FC221DA4D5500AAB239 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		74B26FC521DA4D5500AAB239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74B26FC721DA4D5800AAB239 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B26FCA21DA4D5800AAB239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +68,12 @@
 			isa = PBXGroup;
 			children = (
 				74B26FC021DA4D5500AAB239 /* AppDelegate.swift */,
-				74B26FC221DA4D5500AAB239 /* ViewController.swift */,
+				748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */,
+				748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */,
+				748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */,
+				748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */,
+				748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */,
+				748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */,
 				74B26FC421DA4D5500AAB239 /* Main.storyboard */,
 				74B26FC721DA4D5800AAB239 /* Assets.xcassets */,
 				74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */,
@@ -139,8 +154,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74B26FC321DA4D5500AAB239 /* ViewController.swift in Sources */,
+				748DEA6721DEBF1700AD8E70 /* SingleLectureViewController.swift in Sources */,
+				748DEA5F21DE974F00AD8E70 /* RegisterViewController.swift in Sources */,
+				748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */,
+				748DEA5D21DE96D500AD8E70 /* LoginViewController.swift in Sources */,
 				74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */,
+				748DEA6121DEBDD900AD8E70 /* CourseTypesViewController.swift in Sources */,
+				748DEA6321DEBE8000AD8E70 /* CoursesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
