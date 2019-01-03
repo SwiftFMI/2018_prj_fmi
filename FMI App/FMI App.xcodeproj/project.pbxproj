@@ -13,6 +13,7 @@
 		748DEA6321DEBE8000AD8E70 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */; };
 		748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */; };
 		748DEA6721DEBF1700AD8E70 /* SingleLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */; };
+		748DEA6921DECC5600AD8E70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */; };
 		74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B26FC021DA4D5500AAB239 /* AppDelegate.swift */; };
 		74B26FC621DA4D5500AAB239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC421DA4D5500AAB239 /* Main.storyboard */; };
 		74B26FC821DA4D5800AAB239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC721DA4D5800AAB239 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
 		748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLectureViewController.swift; sourceTree = "<group>"; };
+		748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74B26FBD21DA4D5500AAB239 /* FMI App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FMI App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B26FC021DA4D5500AAB239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B26FC521DA4D5500AAB239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				74B26FC721DA4D5800AAB239 /* Assets.xcassets */,
 				74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */,
 				74B26FCC21DA4D5800AAB239 /* Info.plist */,
+				748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */,
 			);
 			path = "FMI App";
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				74B26FCB21DA4D5800AAB239 /* LaunchScreen.storyboard in Resources */,
 				74B26FC821DA4D5800AAB239 /* Assets.xcassets in Resources */,
+				748DEA6921DECC5600AD8E70 /* GoogleService-Info.plist in Resources */,
 				F24D237721DD19AB007FA27D /* Media.xcassets in Resources */,
 				74B26FC621DA4D5500AAB239 /* Main.storyboard in Resources */,
 			);
