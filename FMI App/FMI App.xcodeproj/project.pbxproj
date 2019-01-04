@@ -18,10 +18,12 @@
 		74B26FC621DA4D5500AAB239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC421DA4D5500AAB239 /* Main.storyboard */; };
 		74B26FC821DA4D5800AAB239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC721DA4D5800AAB239 /* Assets.xcassets */; };
 		74B26FCB21DA4D5800AAB239 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */; };
+		8FE4A1BB6B4D6F6D5FC0DA1C /* Pods_FMI_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C472587697527769EB90EB92 /* Pods_FMI_App.framework */; };
 		F24D237721DD19AB007FA27D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24D237621DD19AB007FA27D /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42EDF3BB8EE11EE533C8FBDD /* Pods-FMI App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMI App.release.xcconfig"; path = "Pods/Target Support Files/Pods-FMI App/Pods-FMI App.release.xcconfig"; sourceTree = "<group>"; };
 		748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTypesViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,8 @@
 		74B26FC721DA4D5800AAB239 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B26FCA21DA4D5800AAB239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74B26FCC21DA4D5800AAB239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C472587697527769EB90EB92 /* Pods_FMI_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FMI_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97A14F7001F40C072C99AE0 /* Pods-FMI App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMI App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FMI App/Pods-FMI App.debug.xcconfig"; sourceTree = "<group>"; };
 		F24D237621DD19AB007FA27D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,18 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FE4A1BB6B4D6F6D5FC0DA1C /* Pods_FMI_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E78817A6F4C2D076EE65946 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C472587697527769EB90EB92 /* Pods_FMI_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		74B26FB421DA4D5500AAB239 = {
 			isa = PBXGroup;
 			children = (
 				F24D237621DD19AB007FA27D /* Media.xcassets */,
 				74B26FBF21DA4D5500AAB239 /* FMI App */,
 				74B26FBE21DA4D5500AAB239 /* Products */,
+				7C8D917876CADB87C07E6C86 /* Pods */,
+				0E78817A6F4C2D076EE65946 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +100,15 @@
 			path = "FMI App";
 			sourceTree = "<group>";
 		};
+		7C8D917876CADB87C07E6C86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D97A14F7001F40C072C99AE0 /* Pods-FMI App.debug.xcconfig */,
+				42EDF3BB8EE11EE533C8FBDD /* Pods-FMI App.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74B26FCF21DA4D5800AAB239 /* Build configuration list for PBXNativeTarget "FMI App" */;
 			buildPhases = (
+				2ADF32C762C51753BDDBA7E3 /* [CP] Check Pods Manifest.lock */,
 				74B26FB921DA4D5500AAB239 /* Sources */,
 				74B26FBA21DA4D5500AAB239 /* Frameworks */,
 				74B26FBB21DA4D5500AAB239 /* Resources */,
+				FEF9F30EFAD4D739054298A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +178,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2ADF32C762C51753BDDBA7E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FMI App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEF9F30EFAD4D739054298A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FMI App/Pods-FMI App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FMI App/Pods-FMI App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		74B26FB921DA4D5500AAB239 /* Sources */ = {
@@ -308,6 +383,7 @@
 		};
 		74B26FD021DA4D5800AAB239 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D97A14F7001F40C072C99AE0 /* Pods-FMI App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -327,6 +403,7 @@
 		};
 		74B26FD121DA4D5800AAB239 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42EDF3BB8EE11EE533C8FBDD /* Pods-FMI App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
