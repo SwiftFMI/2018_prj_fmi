@@ -7,4 +7,5 @@ target 'FMI App' do
 
   # Pods for FMI App
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 end

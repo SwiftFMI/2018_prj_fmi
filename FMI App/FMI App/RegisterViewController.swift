@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var passwordRepeatField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     let viewsCornerRadius : CGFloat = 30
+    
+    let PASSWD_LEN_MIN = 8
+    let PASSWD_LEN_MAX = 64
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,4 +42,48 @@ class RegisterViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func onTapRegisterButton(_ sender: Any) {
+        if validateData() {
+            Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {
+                [weak self]
+                (authResult, error) in
+                guard (authResult?.user) != nil else {
+                    self?.errorLabel.text = error?.localizedDescription
+                    return
+                }
+            }
+        }
+    }
+    
+    func validateData() -> Bool {
+        guard let email = emailField.text, let password = passwordField.text, let passwordRepeated = passwordRepeatField.text else {
+            errorLabel.text = "Полетата трябва да са попълнени!"
+            errorLabel.isHidden = false
+            return false
+        }
+        
+        var errorMessage: String = ""
+        
+        if !email.isValidEmail() {
+            errorMessage = "Въведеният имейл е невалиден!"
+        } else if password.count < PASSWD_LEN_MIN {
+            errorMessage = "Паролата е твърде кратка!"
+        } else if password.count > PASSWD_LEN_MAX {
+            errorMessage = "Паролата е твърде дълга!"
+        } else if password != passwordRepeated {
+            errorMessage = "Паролите не съвпадат!"
+        }
+        
+        errorLabel.text = errorMessage
+        errorLabel.isHidden = errorMessage == ""
+        return errorMessage == ""
+    }
+    
+}
+
+extension String {
+    func isValidEmail() -> Bool {
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
+    }
 }
