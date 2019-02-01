@@ -151,6 +151,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="onTapLoginWithEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vCM-4g-hrI"/>
                                                     <segue destination="ybj-HI-DzM" kind="show" id="J1n-Tq-0yd"/>
                                                 </connections>
                                             </button>
@@ -221,6 +222,12 @@
                                             <constraint firstAttribute="bottom" secondItem="eE8-WJ-Q7O" secondAttribute="bottom" id="yHc-5A-6j6"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKB-ma-M97" userLabel="errorLabelLogin">
+                                        <rect key="frame" x="187.5" y="83.5" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.10527257850000001" blue="0.092665022329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -234,6 +241,7 @@
                                     <constraint firstItem="fMr-K6-07q" firstAttribute="leading" secondItem="PiT-FG-J8X" secondAttribute="leading" id="GlR-O8-3UE"/>
                                     <constraint firstItem="gQ1-j0-N23" firstAttribute="leading" secondItem="PiT-FG-J8X" secondAttribute="leading" constant="20" id="HjB-mh-a6H"/>
                                     <constraint firstItem="3VX-sO-hzO" firstAttribute="top" secondItem="yJ5-1p-whX" secondAttribute="bottom" constant="30" id="Ioy-7V-AGl"/>
+                                    <constraint firstItem="yKB-ma-M97" firstAttribute="top" secondItem="fMr-K6-07q" secondAttribute="bottom" constant="15" id="MKS-3I-MPA"/>
                                     <constraint firstItem="3VX-sO-hzO" firstAttribute="leading" secondItem="PiT-FG-J8X" secondAttribute="leading" constant="20" id="P35-if-ecA"/>
                                     <constraint firstAttribute="trailing" secondItem="fMr-K6-07q" secondAttribute="trailing" id="RNf-2Z-led"/>
                                     <constraint firstItem="msJ-aB-gTZ" firstAttribute="centerY" secondItem="PiT-FG-J8X" secondAttribute="centerY" id="ZOe-aP-KvD"/>
@@ -243,6 +251,7 @@
                                     <constraint firstAttribute="trailing" secondItem="gQ1-j0-N23" secondAttribute="trailing" constant="20" id="kGa-Cc-WDD"/>
                                     <constraint firstItem="msJ-aB-gTZ" firstAttribute="top" secondItem="gQ1-j0-N23" secondAttribute="bottom" constant="30" id="koi-zu-utc"/>
                                     <constraint firstAttribute="trailing" secondItem="msJ-aB-gTZ" secondAttribute="trailing" constant="20" id="tGa-Zy-Bjh"/>
+                                    <constraint firstItem="yKB-ma-M97" firstAttribute="centerX" secondItem="PiT-FG-J8X" secondAttribute="centerX" id="v3S-aw-D7v"/>
                                     <constraint firstItem="0zq-GF-yTM" firstAttribute="leading" secondItem="PiT-FG-J8X" secondAttribute="leading" constant="20" id="xzk-iB-92T"/>
                                 </constraints>
                                 <connections>
@@ -261,6 +270,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="9BW-2D-Yc9" id="lM7-Rb-zXd"/>
+                        <outlet property="errorLabelLogin" destination="yKB-ma-M97" id="rZV-uV-z6w"/>
                         <outlet property="passwordField" destination="hec-ss-OdP" id="rur-7H-GXC"/>
                         <outletCollection property="roundedViewsCollection" destination="gQ1-j0-N23" collectionClass="NSMutableArray" id="tj1-G1-sf8"/>
                         <outletCollection property="roundedViewsCollection" destination="msJ-aB-gTZ" collectionClass="NSMutableArray" id="eJy-RK-F0X"/>
