@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		114228CA2203864C00E78215 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114228C92203864C00E78215 /* Users.swift */; };
 		748DEA5D21DE96D500AD8E70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */; };
 		748DEA5F21DE974F00AD8E70 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */; };
 		748DEA6121DEBDD900AD8E70 /* CourseTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		114228C92203864C00E78215 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		42EDF3BB8EE11EE533C8FBDD /* Pods-FMI App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMI App.release.xcconfig"; path = "Pods/Target Support Files/Pods-FMI App/Pods-FMI App.release.xcconfig"; sourceTree = "<group>"; };
 		748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				74B26FCC21DA4D5800AAB239 /* Info.plist */,
 				748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */,
 				F2DF930421F1F61800B5329E /* Courses.swift */,
-				114228C92203864C00E78215 /* Users.swift */,
 			);
 			path = "FMI App";
 			sourceTree = "<group>";
@@ -246,7 +243,6 @@
 			files = (
 				748DEA6721DEBF1700AD8E70 /* SingleLectureViewController.swift in Sources */,
 				748DEA5F21DE974F00AD8E70 /* RegisterViewController.swift in Sources */,
-				114228CA2203864C00E78215 /* Users.swift in Sources */,
 				748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */,
 				748DEA5D21DE96D500AD8E70 /* LoginViewController.swift in Sources */,
 				74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */,

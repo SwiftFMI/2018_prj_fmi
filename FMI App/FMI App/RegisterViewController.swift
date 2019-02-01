@@ -51,6 +51,8 @@ class RegisterViewController: UIViewController {
                     self?.errorLabel.text = error?.localizedDescription
                     return
                 }
+                self?.navigationController?.popViewController(animated: true)
+
             }
         }
     }
@@ -58,7 +60,7 @@ class RegisterViewController: UIViewController {
     func validateData() -> Bool {
         guard let email = emailField.text, let password = passwordField.text, let passwordRepeated = passwordRepeatField.text else {
             errorLabel.text = "Полетата трябва да са попълнени!"
-            errorLabel.isHidden = false
+            errorLabel.alpha = 1
             return false
         }
         
@@ -75,8 +77,9 @@ class RegisterViewController: UIViewController {
         }
         
         errorLabel.text = errorMessage
-        errorLabel.isHidden = errorMessage == ""
+        errorLabel.alpha = errorMessage == "" ? 0 : 1
         return errorMessage == ""
+        
     }
     
 }
