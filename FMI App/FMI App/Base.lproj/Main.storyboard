@@ -151,8 +151,8 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onTapLoginWithEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vCM-4g-hrI"/>
-                                                    <segue destination="ybj-HI-DzM" kind="show" id="J1n-Tq-0yd"/>
+                                                    <action selector="onTapLoginWithEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7mK-ff-wYI"/>
+                                                    <segue destination="ybj-HI-DzM" kind="show" identifier="loginSuccessfulSegue" id="J1n-Tq-0yd"/>
                                                 </connections>
                                             </button>
                                         </subviews>

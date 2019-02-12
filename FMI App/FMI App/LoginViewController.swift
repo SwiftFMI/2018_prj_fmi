@@ -32,6 +32,11 @@ class LoginViewController: UIViewController {
     @IBAction func didTapToEndInput(_ sender: Any) {
         view.endEditing(true)
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return identifier != "loginSuccessfulSegue"
+    }
+    
     @IBAction func onTapLoginWithEmail(_ sender: Any) {
         guard let email = emailField.text, let password = passwordField.text
             else {
@@ -50,7 +55,7 @@ class LoginViewController: UIViewController {
             
             self?.errorLabelLogin.alpha = 0
             // TODO: save data
-            // TODO: fix segue
+            self?.performSegue(withIdentifier: "loginSuccessfulSegue", sender: nil)
         }
     }
 }
