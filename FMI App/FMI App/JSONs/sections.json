@@ -1,0 +1,15 @@
+
+{
+    "sections":[
+        {
+            "id": 1,
+            "name": "Информатика",
+            "image": "Programming"
+        },
+        {
+            "id": 2,
+            "name": "Математика",
+            "image": "Math"
+        }
+    ]
+}

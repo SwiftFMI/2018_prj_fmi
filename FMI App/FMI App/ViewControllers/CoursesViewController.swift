@@ -9,5 +9,5 @@
 import UIKit
 
 class CoursesViewController: UITableViewController {
-    
+    var selectedSectionId : Int? = nil
 }

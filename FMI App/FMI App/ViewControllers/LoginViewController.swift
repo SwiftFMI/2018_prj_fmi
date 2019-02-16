@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import CoreData
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
@@ -18,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabelLogin: UILabel!
     
     let viewsCornerRadius : CGFloat = 30
+    var selectedSectionId: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +58,14 @@ class LoginViewController: UIViewController {
             self?.errorLabelLogin.alpha = 0
             // TODO: save data
             self?.performSegue(withIdentifier: "loginSuccessfulSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSuccessfulSegue" {
+            if let destinationViewController = segue.destination as? CoursesViewController {
+                destinationViewController.selectedSectionId = self.selectedSectionId
+            }
         }
     }
 }

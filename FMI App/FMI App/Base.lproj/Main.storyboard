@@ -31,27 +31,18 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUN-CC-Sdt">
-                                            <rect key="frame" x="149" y="11" width="226" height="33"/>
+                                            <rect key="frame" x="149" y="28" width="226" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A9s-aU-XXj">
-                                            <rect key="frame" x="149" y="49" width="210" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="nameLabel" destination="EUN-CC-Sdt" id="K7W-Qu-j2n"/>
                                     <outlet property="photoImageView" destination="hVv-gJ-gP3" id="veN-dU-Y24"/>
-                                    <outlet property="textField" destination="A9s-aU-XXj" id="bdC-Tl-mBw"/>
-                                    <outletCollection property="gestureRecognizers" destination="i9u-dY-zQK" appends="YES" id="iiC-Yk-hcW"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="fra-Gb-GBY"/>
                                 </connections>
                             </tableViewCell>
@@ -66,7 +57,6 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGy-24-lMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="i9u-dY-zQK"/>
             </objects>
             <point key="canvasLocation" x="-927.20000000000005" y="124.58770614692655"/>
         </scene>
@@ -286,7 +276,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-927.20000000000005" y="1142.8785607196403"/>
+            <point key="canvasLocation" x="25" y="125"/>
         </scene>
         <!--Регистрация-->
         <scene sceneID="qlp-Ja-ZkV">
@@ -443,7 +433,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2084" y="1142.8785607196403"/>
+            <point key="canvasLocation" x="25" y="1086"/>
         </scene>
         <!--Курсове-->
         <scene sceneID="Oby-9D-g9z">

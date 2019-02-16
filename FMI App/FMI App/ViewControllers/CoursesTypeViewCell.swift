@@ -15,7 +15,6 @@ class CoursesTypeViewCell: UITableViewCell {
     
     @IBOutlet weak var photoImageView: UIImageView!
     
-    @IBOutlet weak var textField: UITextField!
     
     
     override func awakeFromNib() {
