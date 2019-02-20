@@ -9,5 +9,8 @@
 import UIKit
 
 class SingleLectureViewController: UITableViewController {
-    
+    // MARK: Properties
+    var selectedSectionId: Int? = nil
+    var selectedCourseId: Int? = nil
+    var selectedLectureId: Int? = nil
 }
