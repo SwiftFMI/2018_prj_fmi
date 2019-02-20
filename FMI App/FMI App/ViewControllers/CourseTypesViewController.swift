@@ -11,6 +11,7 @@ import UIKit
 class CourseTypesViewController: UITableViewController {
     //MARK: Properties
     var sections : InformationModels.Sections?
+    var images = [UIImage?]()
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -23,17 +24,15 @@ class CourseTypesViewController: UITableViewController {
                 return
             }
             self?.sections = result
+            for _ in 1...result.sections.count {
+                //init array
+                self?.images.append(nil)
+            }
             self?.tableView.reloadData()
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //tableView.reloadData()
-        
-    }
-    
+
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
@@ -44,19 +43,26 @@ class CourseTypesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CoursesTableViewCell"
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CoursesTypeViewCell  else {
             return UITableViewCell()
         }
-        // Fetches the appropriate course for the data source layout.
-        let section = sections?.sections[indexPath.row]
         
+        let section = sections?.sections[indexPath.row]
         cell.nameLabel.text = section?.name
-        if let imgURL = section?.image {
-            Networking.getImageFromURL(imgURL) { (fetchedImage) in
-                cell.photoImageView.image = fetchedImage
-                tableView.reloadData()
+        
+        if let image = images[indexPath.row] {
+            cell.photoImageView.image = image
+        } else {
+            if let imgURL = section?.image {
+                Networking.getImageFromURL(imgURL) { [weak self] (fetchedImage) in
+                    cell.photoImageView.image = fetchedImage
+                    self?.images[indexPath.row] = fetchedImage
+                    self?.tableView.reloadData()
+                }
             }
         }
+        
         return cell
     }
     

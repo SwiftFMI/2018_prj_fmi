@@ -19,6 +19,7 @@
 		748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */; };
 		748DEA6721DEBF1700AD8E70 /* SingleLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */; };
 		748DEA6921DECC5600AD8E70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */; };
+		7494C4D3221D7982007AA356 /* CourseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7494C4D2221D7982007AA356 /* CourseViewCell.swift */; };
 		74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B26FC021DA4D5500AAB239 /* AppDelegate.swift */; };
 		74B26FC621DA4D5500AAB239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC421DA4D5500AAB239 /* Main.storyboard */; };
 		74B26FC821DA4D5800AAB239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC721DA4D5800AAB239 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
 		748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLectureViewController.swift; sourceTree = "<group>"; };
 		748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7494C4D2221D7982007AA356 /* CourseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewCell.swift; sourceTree = "<group>"; };
 		74B26FBD21DA4D5500AAB239 /* FMI App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FMI App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B26FC021DA4D5500AAB239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B26FC521DA4D5500AAB239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,7 +93,6 @@
 				748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */,
 				748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */,
 				748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */,
-				F2DF930221F1F44A00B5329E /* CoursesTypeViewCell.swift */,
 				748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */,
 				748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */,
 				748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */,
@@ -106,6 +107,15 @@
 				11BA0CC722185CA4008B3470 /* sections.json */,
 			);
 			path = JSONs;
+			sourceTree = "<group>";
+		};
+		7494C4D1221D7955007AA356 /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				F2DF930221F1F44A00B5329E /* CoursesTypeViewCell.swift */,
+				7494C4D2221D7982007AA356 /* CourseViewCell.swift */,
+			);
+			path = CellViews;
 			sourceTree = "<group>";
 		};
 		74B26FB421DA4D5500AAB239 = {
@@ -134,13 +144,14 @@
 				110C301A221366DC00A5C038 /* User+CoreDataProperties.swift */,
 				74B26FC721DA4D5800AAB239 /* Assets.xcassets */,
 				74B26FC021DA4D5500AAB239 /* AppDelegate.swift */,
+				7494C4D1221D7955007AA356 /* CellViews */,
 				11BA0CC522185484008B3470 /* ViewControllers */,
 				74B26FC421DA4D5500AAB239 /* Main.storyboard */,
 				74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */,
+				11BA0CC422185465008B3470 /* Models */,
+				11BA0CC622185C79008B3470 /* JSONs */,
 				74B26FCC21DA4D5800AAB239 /* Info.plist */,
 				748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */,
-				11BA0CC622185C79008B3470 /* JSONs */,
-				11BA0CC422185465008B3470 /* Models */,
 				110C30162213662800A5C038 /* FMI App.xcdatamodeld */,
 			);
 			path = "FMI App";
@@ -291,6 +302,7 @@
 				74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */,
 				F2DF930321F1F44A00B5329E /* CoursesTypeViewCell.swift in Sources */,
 				745AF3AD221D428300113399 /* Alerts.swift in Sources */,
+				7494C4D3221D7982007AA356 /* CourseViewCell.swift in Sources */,
 				748DEA6121DEBDD900AD8E70 /* CourseTypesViewController.swift in Sources */,
 				110C30182213662800A5C038 /* FMI App.xcdatamodeld in Sources */,
 				748DEA6321DEBE8000AD8E70 /* CoursesViewController.swift in Sources */,

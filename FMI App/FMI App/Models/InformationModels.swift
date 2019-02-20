@@ -13,9 +13,6 @@ class InformationModels {
     private init() {}
     
     struct Sections: Decodable {
-        enum TopLevelCodingKey: String, CodingKey {
-            case sections
-        }
         enum SectionCodingKeys: String, CodingKey {
             case id; case name; case image
         }
@@ -23,10 +20,6 @@ class InformationModels {
         var sections = [(id: Int?, name: String?, image: String?)]()
         
         init(from decoder: Decoder) throws {
-            //let container = try decoder.container(keyedBy: TopLevelCodingKey.self)
-            
-            //var sectionsNestedContainer = try container.nestedUnkeyedContainer(forKey: .sections)
-            
             var sectionsNestedContainer = try decoder.unkeyedContainer()
             
             if let numberOfSections = sectionsNestedContainer.count {
@@ -37,6 +30,35 @@ class InformationModels {
                     let currImage = try sectionsValueContainer.decode(String.self, forKey: .image)
                     
                     sections.append((currId, currName, currImage))
+                }
+                
+            }
+        }
+    }
+    
+    
+    struct Courses : Decodable {
+        enum TopLevelCodingKey: String, CodingKey {
+            case courses
+        }
+        enum CourseCodingKeys: String, CodingKey {
+            case id; case name; case image
+        }
+        
+        var courses = [(id: Int?, name: String?, image: String?)]()
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: TopLevelCodingKey.self)
+            var coursesUnkeyedContainer = try container.nestedUnkeyedContainer(forKey: .courses)
+            
+            if let numberOfSections = coursesUnkeyedContainer.count {
+                for _ in 1...numberOfSections {
+                    let coursesValueContainer = try coursesUnkeyedContainer.nestedContainer(keyedBy: CourseCodingKeys.self)
+                    let currId = try coursesValueContainer.decode(Int.self, forKey: .id)
+                    let currName = try coursesValueContainer.decode(String.self, forKey: .name)
+                    let currImage = try coursesValueContainer.decode(String.self, forKey: .image)
+                    
+                    courses.append((currId, currName, currImage))
                 }
                 
             }

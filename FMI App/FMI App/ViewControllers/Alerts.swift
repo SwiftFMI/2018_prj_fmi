@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func fetchDataFail() {
-        let alert = UIAlertController(title:"Network Error", message: "Unable to fetch data.", preferredStyle: .alert)
+    private func makeAlert(title: String, message: String) {
+        let alert = UIAlertController(title:title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             switch action.style{
             case .default:
@@ -24,5 +24,14 @@ extension UIViewController {
                 print("destructive")
             }}))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func fetchDataFail() {
+        makeAlert(title: "Network Error", message: "Unable to fetch data.")
+    }
+    
+    func oops() {
+        makeAlert(title: "Oops", message: "Something went wrong.")
     }
 }

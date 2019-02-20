@@ -26,41 +26,57 @@ final class Networking {
      
             DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
 
-                guard let data = data, err == nil else {
-                    completion(nil)
-                    return
-                }
+            guard let data = data, err == nil else {
+                completion(nil)
+                return
+            }
                 
-                completion(UIImage(data: data))
+            completion(UIImage(data: data))
+            
+        }.resume()
+    }
+    
+    
+    private static func getJSONData(from url: URL, completion: @escaping (Data?) -> ()) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            DispatchQueue.main.async {
+                completion(data)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }.resume()
     }
     
+    
     static func getSections(completion: @escaping (InformationModels.Sections?) -> ()) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         let url = URL(string: "https://fmi-app.firebaseio.com/sections.json")!
         
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            guard let data = data, error == nil else {
-                //print(error)
+        Networking.getJSONData(from: url) { (data) in
+            if let data = data {
+                let sections = try? JSONDecoder().decode(InformationModels.Sections.self, from: data)
+                completion(sections)
+            } else {
                 completion(nil)
-                return
             }
-            
-            DispatchQueue.main.async {
-                do {
-                    let sections = try JSONDecoder().decode(InformationModels.Sections.self, from: data)
-                    completion(sections)
-                } catch {
-                    completion(nil)
-                }
-                
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }
-            
-        }.resume()
+        }
         
     }
+    
+    static func getCourses(section id: Int, completion: @escaping (InformationModels.Courses?) -> ()) {
+        let url = URL(string: "https://fmi-app.firebaseio.com/sections/\(id).json")!
+        
+        Networking.getJSONData(from: url) { (data) in
+            if let data = data {
+                let courses = try? JSONDecoder().decode(InformationModels.Courses.self, from: data)
+                completion(courses)
+            } else {
+                completion(nil)
+            }
+        }
+        
+    }
+    
 }
