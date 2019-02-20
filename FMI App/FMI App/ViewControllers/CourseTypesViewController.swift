@@ -45,14 +45,17 @@ class CourseTypesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CoursesTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CoursesTypeViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            return UITableViewCell()
         }
         // Fetches the appropriate course for the data source layout.
-        let course = sections?.sections[indexPath.row]
+        let section = sections?.sections[indexPath.row]
         
-        cell.nameLabel.text = course?.name
-        if let imgName = course?.image {
-            cell.photoImageView.image = UIImage(named: imgName)
+        cell.nameLabel.text = section?.name
+        if let imgURL = section?.image {
+            Networking.getImageFromURL(imgURL) { (fetchedImage) in
+                cell.photoImageView.image = fetchedImage
+                tableView.reloadData()
+            }
         }
         return cell
     }

@@ -13,6 +13,30 @@ final class Networking {
     static let shared = Networking()
     private init() {}
     
+    static func getImageFromURL(_ url: String, completion: @escaping (UIImage?) -> ()) {
+        guard let url = URL(string: url) else {
+            completion(nil)
+            return
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        URLSession.shared.dataTask(with: url) {
+            (data, _, err) in
+     
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+                guard let data = data, err == nil else {
+                    completion(nil)
+                    return
+                }
+                
+                completion(UIImage(data: data))
+            }
+        }.resume()
+    }
+    
     static func getSections(completion: @escaping (InformationModels.Sections?) -> ()) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
