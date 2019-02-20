@@ -52,9 +52,7 @@
                             <outlet property="delegate" destination="qxz-6n-ywv" id="YNR-sI-vi9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Типове курсове" id="I9m-SV-pe4">
-                        <barButtonItem key="rightBarButtonItem" title="Skip" id="HVA-Zg-Jkp"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Типове курсове" id="I9m-SV-pe4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGy-24-lMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
