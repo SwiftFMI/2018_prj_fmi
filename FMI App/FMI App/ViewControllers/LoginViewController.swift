@@ -21,6 +21,12 @@ class LoginViewController: UIViewController {
     let viewsCornerRadius : CGFloat = 30
     var selectedSectionId: Int? = nil
     
+    var savedEmail: String? = nil
+    var savedPassword: String? = nil
+    var savedUid: String? = nil
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +34,70 @@ class LoginViewController: UIViewController {
             view.layer.cornerRadius = viewsCornerRadius
         }
         
-        // TODO: automatically load user data if available; integration with Core Data
+        fetchUserInfo()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        emailField.text = savedEmail
+        passwordField.text = savedPassword
+    }
+    
+    func fetchUserInfo() {
+        let request = User.fetchRequest() as NSFetchRequest<NSFetchRequestResult>
+        do {
+            let result = try context.fetch(request)
+            if result.count > 1 {
+                // should be only 1 entry in the entity,
+                // we want to auto load it into the text fields
+                for data in result as! [NSManagedObject] {
+                    savedEmail = data.value(forKey: "email") as? String
+                    savedPassword = data.value(forKey: "password") as? String
+                    savedUid = data.value(forKey: "uid") as? String
+                }
+            }
+        } catch {
+            print("error fetching")
+        }
+    }
+    
+    
+    func saveNewUser (email: String, password: String, uid: String) {
+        savedEmail = email
+        savedPassword = password
+        savedUid = uid
+        
+        let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
+        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+        
+        newUser.setValue(email, forKey: "email")
+        newUser.setValue(password, forKey: "password")
+        newUser.setValue(uid, forKey: "uid")
+        
+        do {
+            try context.save()
+        } catch {
+            print("could not save context after user insertion")
+        }
+    }
+    
+    
+    func updateDatabase() {
+        let request = User.fetchRequest() as NSFetchRequest<NSFetchRequestResult>
+        do {
+            let result = try context.fetch(request)
+            if result.count > 1 {
+                // should be only 1 entry in the entity,
+                for data in result as! [NSManagedObject] {
+                    data.setValue(savedEmail, forKey: "email")
+                    data.setValue(savedPassword, forKey: "password")
+                    data.setValue(savedUid, forKey: "uid")
+                }
+            }
+        } catch {
+            print("error fetching")
+        }
     }
     
     @IBAction func didTapToEndInput(_ sender: Any) {
@@ -56,7 +125,19 @@ class LoginViewController: UIViewController {
             }
             
             self?.errorLabelLogin.alpha = 0
-            // TODO: save data
+            
+            
+            if let lastUid = self?.savedUid {
+                if user.user.uid != lastUid {
+                    self?.savedEmail = email
+                    self?.savedPassword = password
+                    self?.savedUid = user.user.uid
+                    self?.updateDatabase()
+                }
+            } else {
+                self?.saveNewUser(email: email, password: password, uid: user.user.uid)
+            }
+            
             self?.performSegue(withIdentifier: "loginSuccessfulSegue", sender: nil)
         }
     }
