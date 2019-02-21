@@ -92,4 +92,18 @@ final class Networking {
         }
     }
     
+    
+    static func getLecture(section: Int, course: Int, lecture: Int, completion: @escaping (InformationModels.Lecture?) -> ()) {
+        let url = URL(string: "https://fmi-app.firebaseio.com/sections/\(section)/courses/\(course)/lectures/\(lecture).json")!
+        
+        Networking.getJSONData(from: url) { (data) in
+            if let data = data {
+                let lecture = try? JSONDecoder().decode(InformationModels.Lecture.self, from: data)
+                completion(lecture)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
 }

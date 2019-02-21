@@ -93,7 +93,7 @@ class InformationModels {
                     if let date = dateString {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "yyyymmdd"
-                        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+02:00")
+                        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+00:00")
                         currDate = dateFormatter.date(from: date)
                     }
                     
@@ -101,6 +101,59 @@ class InformationModels {
                 }
                 
             }
+        }
+    }
+    
+    
+    struct Lecture : Decodable {
+        enum LectureCodingKeys: String, CodingKey {
+            case date
+            case id
+            case name
+            case summary
+            case lecturer
+            case updated
+            case details
+        }
+        
+        enum LecturerCodingKeys: String, CodingKey {
+            case name
+            case position
+            case photo
+        }
+        
+        
+        var date: Date?, id: Int?, name: String?, summary: String?, updated: Date?, details: String?
+        var lecturer: (name: String?, position: String?, photo: String?)
+        
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: LectureCodingKeys.self)
+            
+            let dateString = try? container.decode(String.self, forKey: .date)
+            id = try? container.decode(Int.self, forKey: .id)
+            name = try? container.decode(String.self, forKey: .name)
+            summary = try? container.decode(String.self, forKey: .summary)
+            let updatedString = try? container.decode(String.self, forKey: .updated)
+            details = try? container.decode(String.self, forKey: .details)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyymmdd"
+            dateFormatter.timeZone = TimeZone(abbreviation: "GMT+00:00")
+            
+            if let dateString = dateString {
+                date = dateFormatter.date(from: dateString)
+            }
+            if let updatedString = updatedString {
+                updated = dateFormatter.date(from: updatedString)
+
+            }
+            
+            let lecturerNestedContainer = try container.nestedContainer(keyedBy: LecturerCodingKeys.self, forKey: .lecturer)
+            
+            lecturer.name = try? lecturerNestedContainer.decode(String.self, forKey: .name)
+            lecturer.position = try? lecturerNestedContainer.decode(String.self, forKey: .position)
+            lecturer.photo = try? lecturerNestedContainer.decode(String.self, forKey: .photo)
         }
     }
 }

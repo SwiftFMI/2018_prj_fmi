@@ -60,6 +60,15 @@ class LecturesViewController: UITableViewController {
         let lecture = lectures?.lectures[indexPath.row]
         cell.nameLabel.text = lecture?.name
         cell.summaryLabel.text = lecture?.summary
+        
+        if let datetime = lecture?.date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.mm.yyyy"
+            let dateString = dateFormatter.string(from: datetime)
+            
+            cell.nameLabel.text = cell.nameLabel.text == nil ? "\(dateString)" : "\(cell.nameLabel.text!) (\(dateString))"
+            
+        }
 
         if let image = images[indexPath.row] {
             cell.photoImageView.image = image
