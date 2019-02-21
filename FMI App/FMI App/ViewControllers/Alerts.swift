@@ -28,10 +28,10 @@ extension UIViewController {
     
     
     func fetchDataFail() {
-        makeAlert(title: "Network Error", message: "Unable to fetch data.")
+        makeAlert(title: "Няма информация", message: "Възможно е да няма връзка с интернет.")
     }
     
     func oops() {
-        makeAlert(title: "Oops", message: "Something went wrong.")
+        makeAlert(title: "Опа", message: "За съжаление, нещо се обърка :(")
     }
 }

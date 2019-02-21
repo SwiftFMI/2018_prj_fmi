@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB251C2F5B3F1B89811E83EDC62030EE"
-               BuildableName = "Pods_FMI_App.framework"
-               BlueprintName = "Pods-FMI App"
+               BlueprintIdentifier = "22F853355655144BE095847FF988A0E5"
+               BuildableName = "MarkdownView.framework"
+               BlueprintName = "MarkdownView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB251C2F5B3F1B89811E83EDC62030EE"
-            BuildableName = "Pods_FMI_App.framework"
-            BlueprintName = "Pods-FMI App"
+            BlueprintIdentifier = "22F853355655144BE095847FF988A0E5"
+            BuildableName = "MarkdownView.framework"
+            BlueprintName = "MarkdownView"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

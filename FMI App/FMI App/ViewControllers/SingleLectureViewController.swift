@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import MarkdownView
 
-class SingleLectureViewController: UITableViewController {
+class SingleLectureViewController: UIViewController {
     // MARK: Properties
     var selectedSectionId: Int? = nil
     var selectedCourseId: Int? = nil
     var selectedLectureId: Int? = nil
     var lecture: InformationModels.Lecture? = nil
     var lecturerImage: UIImage? = nil
+    let mdView = MarkdownView()
     
     // MARK: Outlets
     
@@ -23,7 +25,8 @@ class SingleLectureViewController: UITableViewController {
     @IBOutlet weak var lecturerImageView: UIImageView!
     @IBOutlet weak var lecturerNameLabel: UILabel!
     @IBOutlet weak var lecturerSubtitleLabel: UILabel!
-    @IBOutlet weak var lectureText: UITextView!
+ 
+    @IBOutlet weak var detailsView: UIView!
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -33,6 +36,14 @@ class SingleLectureViewController: UITableViewController {
             oops()
             return
         }
+        
+        
+        detailsView.addSubview(mdView)
+        mdView.translatesAutoresizingMaskIntoConstraints = false
+        mdView.topAnchor.constraint(equalTo: detailsView.topAnchor).isActive = true
+        mdView.leadingAnchor.constraint(equalTo: detailsView.leadingAnchor).isActive = true
+        mdView.trailingAnchor.constraint(equalTo: detailsView.trailingAnchor).isActive = true
+        mdView.bottomAnchor.constraint(equalTo: detailsView.bottomAnchor).isActive = true
         
         Networking.getLecture(section: sectionId, course: courseId, lecture: lectureId) { [weak self](result) in
             guard let result = result else {
@@ -60,12 +71,26 @@ class SingleLectureViewController: UITableViewController {
     // MARK: Methods
     func updateViews() {
         lectureNameLabel.text = lecture?.name
-        lectureSubtitleLabel.text = lecture?.summary
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.mm.yyyy"
+        var subtitleText = ""
+        
+        if let date = lecture?.date {
+            subtitleText = dateFormatter.string(from: date)
+            
+            if let updated = lecture?.updated {
+                subtitleText = "\(subtitleText) (Последна редакция: \(dateFormatter.string(from: updated)))"
+            }
+        }
+        
+        
+        lectureSubtitleLabel.text = subtitleText
         
         lecturerImageView.image = lecturerImage
         lecturerNameLabel.text = lecture?.lecturer.name
         lecturerSubtitleLabel.text = lecture?.lecturer.position
         
-        lectureText.text = lecture?.details ?? ""
+        mdView.load(markdown: lecture?.details)
     }
 }
