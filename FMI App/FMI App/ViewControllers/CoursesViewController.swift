@@ -33,7 +33,9 @@ class CoursesViewController: UITableViewController {
             for _ in 1...result.courses.count {
                 self?.images.append(nil)
             }
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
     
@@ -63,7 +65,9 @@ class CoursesViewController: UITableViewController {
                 Networking.getImageFromURL(imgURL) { [weak self] (fetchedImage) in
                     cell.photoImageView.image = fetchedImage
                     self?.images[indexPath.row] = fetchedImage
-                    self?.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
                 }
             }
         }

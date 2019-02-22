@@ -47,12 +47,17 @@ class RegisterViewController: UIViewController {
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {
                 [weak self]
                 (authResult, error) in
-                guard (authResult?.user) != nil else {
-                    self?.errorLabel.text = error?.localizedDescription
+                guard let user = authResult?.user else {
+                    self?.errorLabel.text = "Потребителят не може да бъде създаден!"
                     return
                 }
                 self?.navigationController?.popViewController(animated: true)
-
+                
+                if let loginVC = self?.navigationController?.topViewController as? LoginViewController {
+                    loginVC.savedUid = user.uid
+                    loginVC.savedEmail = user.email
+                    loginVC.savedPassword = self?.passwordField.text
+                }
             }
         }
     }

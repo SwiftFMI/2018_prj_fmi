@@ -28,7 +28,9 @@ class CourseTypesViewController: UITableViewController {
                 //init array
                 self?.images.append(nil)
             }
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
     
@@ -58,7 +60,9 @@ class CourseTypesViewController: UITableViewController {
                 Networking.getImageFromURL(imgURL) { [weak self] (fetchedImage) in
                     cell.photoImageView.image = fetchedImage
                     self?.images[indexPath.row] = fetchedImage
-                    self?.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
                 }
             }
         }

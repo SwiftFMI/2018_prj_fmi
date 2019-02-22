@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMI App/ViewControllers/LecturesViewController.swift"
-            timestampString = "572516745.4438"
+            timestampString = "572531837.924309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FMI App/ViewControllers/SingleLectureViewController.swift"
-            timestampString = "572527865.148676"
+            timestampString = "572531837.924463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "updateViews()"
             landmarkType = "7">
          </BreakpointContent>

@@ -8,6 +8,7 @@
 
 import UIKit
 import MarkdownView
+import SafariServices
 
 class SingleLectureViewController: UIViewController {
     // MARK: Properties
@@ -45,6 +46,18 @@ class SingleLectureViewController: UIViewController {
         mdView.trailingAnchor.constraint(equalTo: detailsView.trailingAnchor).isActive = true
         mdView.bottomAnchor.constraint(equalTo: detailsView.bottomAnchor).isActive = true
         
+        mdView.onTouchLink = { [weak self] request in
+            guard let url = request.url else { return false }
+            
+            if url.scheme == "https" || url.scheme == "http" {
+                let safari = SFSafariViewController(url: url)
+                self?.navigationController?.pushViewController(safari, animated: true)
+                return false
+            } else {
+                return false
+            }
+        }
+        
         Networking.getLecture(section: sectionId, course: courseId, lecture: lectureId) { [weak self](result) in
             guard let result = result else {
                 self?.fetchDataFail()
@@ -52,14 +65,21 @@ class SingleLectureViewController: UIViewController {
             }
             self?.lecture = result
             
-            if let imgURL = self?.lecture?.lecturer.photo {
-                Networking.getImageFromURL(imgURL, completion: { [weak self] (img) in
-                    self?.lecturerImage = img
-                    self?.updateViews()
-                })
+            
+                if let imgURL = self?.lecture?.lecturer.photo {
+                    Networking.getImageFromURL(imgURL, completion: { [weak self] (img) in
+                        self?.lecturerImage = img
+                        DispatchQueue.main.async {
+                            self?.updateViews()
+                        }
+                    })
+                }
+            
+            DispatchQueue.main.async {
+                self?.updateViews()
             }
             
-            self?.updateViews()
+            
         }
         
         
@@ -67,7 +87,7 @@ class SingleLectureViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateViews()
+        //updateViews()
     }
     
     

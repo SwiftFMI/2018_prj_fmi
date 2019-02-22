@@ -69,18 +69,20 @@ class LecturesViewController: UITableViewController {
             cell.nameLabel.text = cell.nameLabel.text == nil ? "\(dateString)" : "\(cell.nameLabel.text!) (\(dateString))"
             
         }
+        
+        // TODO: Fix the cell being displayed...
 
-        if let image = images[indexPath.row] {
-            cell.photoImageView.image = image
-        } else {
-            if let imgURL = lecture?.image {
-                Networking.getImageFromURL(imgURL) { [weak self] (fetchedImage) in
-                    cell.photoImageView.image = fetchedImage
-                    self?.images[indexPath.row] = fetchedImage
-                    self?.tableView.reloadData()
-                }
-            }
-        }
+//        if let image = images[indexPath.row] {
+//            cell.photoImageView.image = image
+//        } else {
+//            if let imgURL = lecture?.image {
+//                Networking.getImageFromURL(imgURL) { [weak self] (fetchedImage) in
+//                    cell.photoImageView.image = fetchedImage
+//                    self?.images[indexPath.row] = fetchedImage
+//                    self?.tableView.reloadData()
+//                }
+//            }
+//        }
 
         return cell
     }
