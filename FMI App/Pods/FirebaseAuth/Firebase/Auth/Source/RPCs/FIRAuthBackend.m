@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-#import "FIRAuthBackend.h"
+#import <Foundation/Foundation.h>
 
-#import <GTMSessionFetcher/GTMSessionFetcher.h>
-#import <GTMSessionFetcher/GTMSessionFetcherService.h>
+#import "FIRAuthBackend.h"
 
 #import "FIRAuthErrorUtils.h"
 #import "FIRAuthGlobalWorkQueue.h"
@@ -30,8 +29,6 @@
 #import "FIRDeleteAccountResponse.h"
 #import "FIRGetAccountInfoRequest.h"
 #import "FIRGetAccountInfoResponse.h"
-#import "FIRSignInWithGameCenterRequest.h"
-#import "FIRSignInWithGameCenterResponse.h"
 #import "FIRGetOOBConfirmationCodeRequest.h"
 #import "FIRGetOOBConfirmationCodeResponse.h"
 #import "FIRGetProjectConfigRequest.h"
@@ -58,6 +55,8 @@
 #import "FIREmailLinkSignInResponse.h"
 #import "FIRVerifyPhoneNumberRequest.h"
 #import "FIRVerifyPhoneNumberResponse.h"
+#import <GTMSessionFetcher/GTMSessionFetcher.h>
+#import <GTMSessionFetcher/GTMSessionFetcherService.h>
 
 #if TARGET_OS_IOS
 #import "../AuthProviders/Phone/FIRPhoneAuthCredential_Internal.h"
@@ -285,12 +284,6 @@ static NSString *const kMissingAndroidPackageNameErrorMessage = @"MISSING_ANDROI
  */
 static NSString *const kUnauthorizedDomainErrorMessage = @"UNAUTHORIZED_DOMAIN";
 
-/** @var kInvalidDynamicLinkDomainErrorMessage
- @brief This is the error message the server will respond with if the dynamic link domain provided
- in the request is invalid.
- */
-static NSString *const kInvalidDynamicLinkDomainErrorMessage = @"INVALID_DYNAMIC_LINK_DOMAIN";
-
 /** @var kInvalidContinueURIErrorMessage
     @brief This is the error message the server will respond with if the continue URL provided in
         the request is invalid.
@@ -470,11 +463,6 @@ static id<FIRAuthBackendImplementation> gBackendImplementation;
   [[self implementation] deleteAccount:request callback:callback];
 }
 
-+ (void)signInWithGameCenter:(FIRSignInWithGameCenterRequest *)request
-                    callback:(FIRSignInWithGameCenterResponseCallback)callback {
-  [[self implementation] signInWithGameCenter:request callback:callback];
-}
-
 #if TARGET_OS_IOS
 + (void)sendVerificationCode:(FIRSendVerificationCodeRequest *)request
                     callback:(FIRSendVerificationCodeResponseCallback)callback {
@@ -518,20 +506,16 @@ static id<FIRAuthBackendImplementation> gBackendImplementation;
     _fetcherService = [[GTMSessionFetcherService alloc] init];
     _fetcherService.userAgent = [FIRAuthBackend authUserAgent];
     _fetcherService.callbackQueue = FIRAuthGlobalWorkQueue();
-
-    // Avoid reusing the session to prevent
-    // https://github.com/firebase/firebase-ios-sdk/issues/1261
-    _fetcherService.reuseSession = NO;
   }
   return self;
 }
 
 - (void)asyncPostToURLWithRequestConfiguration:(FIRAuthRequestConfiguration *)requestConfiguration
                                            URL:(NSURL *)URL
-                                          body:(nullable NSData *)body
+                                          body:(NSData *)body
                                    contentType:(NSString *)contentType
                              completionHandler:(void (^)(NSData *_Nullable,
-                                                         NSError *_Nullable))handler {
+                               NSError *_Nullable))handler {
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
   [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
   NSString *additionalFrameworkMarker = requestConfiguration.additionalFrameworkMarker ?:
@@ -552,7 +536,7 @@ static id<FIRAuthBackendImplementation> gBackendImplementation;
   if (languageCode.length) {
     [request setValue:languageCode forHTTPHeaderField:kFirebaseLocalHeader];
   }
-  GTMSessionFetcher *fetcher = [_fetcherService fetcherWithRequest:request];
+  GTMSessionFetcher* fetcher = [_fetcherService fetcherWithRequest:request];
   fetcher.bodyData = body;
   [fetcher beginFetchWithCompletionHandler:handler];
 }
@@ -764,22 +748,6 @@ static id<FIRAuthBackendImplementation> gBackendImplementation;
       return;
     }
     callback(response, nil);
-  }];
-}
-
-- (void)signInWithGameCenter:(FIRSignInWithGameCenterRequest *)request
-                    callback:(FIRSignInWithGameCenterResponseCallback)callback {
-  FIRSignInWithGameCenterResponse *response = [[FIRSignInWithGameCenterResponse alloc] init];
-  [self postWithRequest:request response:response callback:^(NSError *error) {
-    if (error) {
-      if (callback) {
-        callback(nil, error);
-      }
-    } else {
-      if (callback) {
-        callback(response, nil);
-      }
-    }
   }];
 }
 
@@ -1070,10 +1038,6 @@ static id<FIRAuthBackendImplementation> gBackendImplementation;
 
   if ([shortErrorMessage isEqualToString:kInvalidContinueURIErrorMessage]) {
     return [FIRAuthErrorUtils invalidContinueURIErrorWithMessage:serverDetailErrorMessage];
-  }
-
-  if ([shortErrorMessage isEqualToString:kInvalidDynamicLinkDomainErrorMessage]) {
-    return [FIRAuthErrorUtils invalidDynamicLinkDomainErrorWithMessage:serverDetailErrorMessage];
   }
 
   if ([shortErrorMessage isEqualToString:kMissingContinueURIErrorMessage]) {

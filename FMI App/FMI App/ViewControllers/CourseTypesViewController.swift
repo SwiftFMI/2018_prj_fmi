@@ -58,9 +58,9 @@ class CourseTypesViewController: UITableViewController {
         } else {
             if let imgURL = section?.image {
                 Networking.getImageFromURL(imgURL) { [weak self] (fetchedImage) in
-                    cell.photoImageView.image = fetchedImage
-                    self?.images[indexPath.row] = fetchedImage
                     DispatchQueue.main.async {
+                        cell.photoImageView.image = fetchedImage
+                        self?.images[indexPath.row] = fetchedImage
                         self?.tableView.reloadData()
                     }
                 }
@@ -71,7 +71,7 @@ class CourseTypesViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationViewController = segue.destination as? LoginViewController, let index = tableView.indexPathForSelectedRow?.row {
+        if let destinationViewController = segue.destination as? LoginTableViewController, let index = tableView.indexPathForSelectedRow?.row {
             destinationViewController.selectedSectionId = sections?.sections[index].id
         }
     }

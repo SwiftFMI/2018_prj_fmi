@@ -13,19 +13,22 @@
 		745AF3A4221D359F00113399 /* InformationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745AF3A3221D359F00113399 /* InformationModels.swift */; };
 		745AF3AB221D3D2700113399 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745AF3AA221D3D2700113399 /* Networking.swift */; };
 		745AF3AD221D428300113399 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745AF3AC221D428300113399 /* Alerts.swift */; };
-		748DEA5D21DE96D500AD8E70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */; };
-		748DEA5F21DE974F00AD8E70 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */; };
 		748DEA6121DEBDD900AD8E70 /* CourseTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */; };
 		748DEA6321DEBE8000AD8E70 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */; };
 		748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */; };
 		748DEA6721DEBF1700AD8E70 /* SingleLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */; };
-		748DEA6921DECC5600AD8E70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */; };
 		7494C4D3221D7982007AA356 /* CourseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7494C4D2221D7982007AA356 /* CourseViewCell.swift */; };
 		74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B26FC021DA4D5500AAB239 /* AppDelegate.swift */; };
 		74B26FC621DA4D5500AAB239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC421DA4D5500AAB239 /* Main.storyboard */; };
 		74B26FC821DA4D5800AAB239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC721DA4D5800AAB239 /* Assets.xcassets */; };
 		74B26FCB21DA4D5800AAB239 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */; };
 		8FE4A1BB6B4D6F6D5FC0DA1C /* Pods_FMI_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C472587697527769EB90EB92 /* Pods_FMI_App.framework */; };
+		B299807C2220B9CD00780628 /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299807B2220B9CD00780628 /* RegistrationTableViewController.swift */; };
+		B299807F2220BB3900780628 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299807E2220BB3900780628 /* UITextField+Extension.swift */; };
+		B29980812220BBEB00780628 /* InputTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980802220BBEB00780628 /* InputTableViewController.swift */; };
+		B2AD2FD42220AF2F00915275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */; };
+		B2AD2FD82220B21800915275 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AD2FD72220B21800915275 /* RoundedButton.swift */; };
+		B2AD2FDA2220B48000915275 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AD2FD92220B48000915275 /* LoginTableViewController.swift */; };
 		F24D237721DD19AB007FA27D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24D237621DD19AB007FA27D /* Media.xcassets */; };
 		F2DF930321F1F44A00B5329E /* CoursesTypeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DF930221F1F44A00B5329E /* CoursesTypeViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -40,13 +43,10 @@
 		745AF3A3221D359F00113399 /* InformationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationModels.swift; sourceTree = "<group>"; };
 		745AF3AA221D3D2700113399 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		745AF3AC221D428300113399 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
-		748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTypesViewController.swift; sourceTree = "<group>"; };
 		748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LecturesViewController.swift; sourceTree = "<group>"; };
 		748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLectureViewController.swift; sourceTree = "<group>"; };
-		748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7494C4D2221D7982007AA356 /* CourseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewCell.swift; sourceTree = "<group>"; };
 		74B26FBD21DA4D5500AAB239 /* FMI App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FMI App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B26FC021DA4D5500AAB239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +54,12 @@
 		74B26FC721DA4D5800AAB239 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B26FCA21DA4D5800AAB239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74B26FCC21DA4D5800AAB239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B299807B2220B9CD00780628 /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
+		B299807E2220BB3900780628 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		B29980802220BBEB00780628 /* InputTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTableViewController.swift; sourceTree = "<group>"; };
+		B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B2AD2FD72220B21800915275 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		B2AD2FD92220B48000915275 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		C472587697527769EB90EB92 /* Pods_FMI_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FMI_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97A14F7001F40C072C99AE0 /* Pods-FMI App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMI App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FMI App/Pods-FMI App.debug.xcconfig"; sourceTree = "<group>"; };
 		F24D237621DD19AB007FA27D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -93,12 +99,13 @@
 			isa = PBXGroup;
 			children = (
 				748DEA6021DEBDD900AD8E70 /* CourseTypesViewController.swift */,
-				748DEA5C21DE96D500AD8E70 /* LoginViewController.swift */,
-				748DEA5E21DE974F00AD8E70 /* RegisterViewController.swift */,
 				748DEA6221DEBE8000AD8E70 /* CoursesViewController.swift */,
 				748DEA6421DEBECD00AD8E70 /* LecturesViewController.swift */,
 				748DEA6621DEBF1700AD8E70 /* SingleLectureViewController.swift */,
 				745AF3AC221D428300113399 /* Alerts.swift */,
+				B2AD2FD92220B48000915275 /* LoginTableViewController.swift */,
+				B299807B2220B9CD00780628 /* RegistrationTableViewController.swift */,
+				B29980802220BBEB00780628 /* InputTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -143,18 +150,19 @@
 		74B26FBF21DA4D5500AAB239 /* FMI App */ = {
 			isa = PBXGroup;
 			children = (
+				B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */,
 				110C3019221366DC00A5C038 /* User+CoreDataClass.swift */,
 				110C301A221366DC00A5C038 /* User+CoreDataProperties.swift */,
 				74B26FC721DA4D5800AAB239 /* Assets.xcassets */,
 				74B26FC021DA4D5500AAB239 /* AppDelegate.swift */,
-				7494C4D1221D7955007AA356 /* Cells */,
+				B299807D2220BB2500780628 /* Extensions */,
+				B2AD2FD52220B1FD00915275 /* Views */,
 				11BA0CC522185484008B3470 /* ViewControllers */,
 				74B26FC421DA4D5500AAB239 /* Main.storyboard */,
 				74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */,
 				11BA0CC422185465008B3470 /* Models */,
 				11BA0CC622185C79008B3470 /* JSONs */,
 				74B26FCC21DA4D5800AAB239 /* Info.plist */,
-				748DEA6821DECC5600AD8E70 /* GoogleService-Info.plist */,
 				110C30162213662800A5C038 /* FMI App.xcdatamodeld */,
 			);
 			path = "FMI App";
@@ -167,6 +175,31 @@
 				42EDF3BB8EE11EE533C8FBDD /* Pods-FMI App.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B299807D2220BB2500780628 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B299807E2220BB3900780628 /* UITextField+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B2AD2FD52220B1FD00915275 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B2AD2FD62220B20F00915275 /* Custom */,
+				7494C4D1221D7955007AA356 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B2AD2FD62220B20F00915275 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				B2AD2FD72220B21800915275 /* RoundedButton.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,10 +264,10 @@
 			files = (
 				74B26FCB21DA4D5800AAB239 /* LaunchScreen.storyboard in Resources */,
 				74B26FC821DA4D5800AAB239 /* Assets.xcassets in Resources */,
-				748DEA6921DECC5600AD8E70 /* GoogleService-Info.plist in Resources */,
 				F24D237721DD19AB007FA27D /* Media.xcassets in Resources */,
 				74B26FC621DA4D5500AAB239 /* Main.storyboard in Resources */,
 				11BA0CC822185CA4008B3470 /* sections.json in Resources */,
+				B2AD2FD42220AF2F00915275 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,9 +304,9 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FMI App/Pods-FMI App-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FMI App/Pods-FMI App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -282,13 +315,13 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FMI App/Pods-FMI App-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FMI App/Pods-FMI App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -299,13 +332,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				748DEA6721DEBF1700AD8E70 /* SingleLectureViewController.swift in Sources */,
-				748DEA5F21DE974F00AD8E70 /* RegisterViewController.swift in Sources */,
+				B2AD2FD82220B21800915275 /* RoundedButton.swift in Sources */,
+				B29980812220BBEB00780628 /* InputTableViewController.swift in Sources */,
+				B299807C2220B9CD00780628 /* RegistrationTableViewController.swift in Sources */,
 				748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */,
 				745AF3AB221D3D2700113399 /* Networking.swift in Sources */,
+				B299807F2220BB3900780628 /* UITextField+Extension.swift in Sources */,
 				745AF3A4221D359F00113399 /* InformationModels.swift in Sources */,
-				748DEA5D21DE96D500AD8E70 /* LoginViewController.swift in Sources */,
 				74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */,
 				F2DF930321F1F44A00B5329E /* CoursesTypeViewCell.swift in Sources */,
+				B2AD2FDA2220B48000915275 /* LoginTableViewController.swift in Sources */,
 				745AF3AD221D428300113399 /* Alerts.swift in Sources */,
 				7494C4D3221D7982007AA356 /* CourseViewCell.swift in Sources */,
 				748DEA6121DEBDD900AD8E70 /* CourseTypesViewController.swift in Sources */,
