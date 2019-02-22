@@ -51,15 +51,18 @@ class SingleLectureViewController: UIViewController {
                 return
             }
             self?.lecture = result
+            
+            if let imgURL = self?.lecture?.lecturer.photo {
+                Networking.getImageFromURL(imgURL, completion: { [weak self] (img) in
+                    self?.lecturerImage = img
+                    self?.updateViews()
+                })
+            }
+            
             self?.updateViews()
         }
         
-        if let imgURL = lecture?.lecturer.photo {
-            Networking.getImageFromURL(imgURL, completion: { [weak self] (img) in
-                self?.lecturerImage = img
-                self?.updateViews()
-            })
-        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
