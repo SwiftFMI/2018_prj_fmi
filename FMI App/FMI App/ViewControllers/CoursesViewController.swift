@@ -63,9 +63,9 @@ class CoursesViewController: UITableViewController {
         } else {
             if let imgURL = course?.image {
                 Networking.getImageFromURL(imgURL) { [weak self] (fetchedImage) in
-                    cell.photoImageView.image = fetchedImage
-                    self?.images[indexPath.row] = fetchedImage
                     DispatchQueue.main.async {
+                        cell.photoImageView.image = fetchedImage
+                        self?.images[indexPath.row] = fetchedImage
                         self?.tableView.reloadData()
                     }
                 }

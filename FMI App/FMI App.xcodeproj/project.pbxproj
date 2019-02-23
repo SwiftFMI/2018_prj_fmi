@@ -30,6 +30,13 @@
 		B29980862220C2B700780628 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980852220C2B700780628 /* AlertPresenter.swift */; };
 		B29980882220C31C00780628 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980872220C31C00780628 /* Localization.swift */; };
 		B299808B2220C37D00780628 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B299808A2220C37D00780628 /* Localizable.strings */; };
+		B299808D2220CFFC00780628 /* DatebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299808C2220CFFC00780628 /* DatebaseHelper.swift */; };
+		B299808F2220D0AE00780628 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299808E2220D0AE00780628 /* User.swift */; };
+		B29980912220D3B900780628 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980902220D3B900780628 /* GradientView.swift */; };
+		B29980942220D96300780628 /* UITextFieldLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980932220D96300780628 /* UITextFieldLocalization.swift */; };
+		B29980962220D98C00780628 /* UILabelLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980952220D98C00780628 /* UILabelLocalization.swift */; };
+		B29980982220D9A300780628 /* UIButtonLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980972220D9A300780628 /* UIButtonLocalization.swift */; };
+		B299809A2220D9CD00780628 /* NavigationItemLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980992220D9CD00780628 /* NavigationItemLocalization.swift */; };
 		B2AD2FD42220AF2F00915275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */; };
 		B2AD2FD82220B21800915275 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AD2FD72220B21800915275 /* RoundedButton.swift */; };
 		B2AD2FDA2220B48000915275 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AD2FD92220B48000915275 /* LoginTableViewController.swift */; };
@@ -65,6 +72,13 @@
 		B29980852220C2B700780628 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		B29980872220C31C00780628 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		B299808A2220C37D00780628 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B299808C2220CFFC00780628 /* DatebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatebaseHelper.swift; sourceTree = "<group>"; };
+		B299808E2220D0AE00780628 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B29980902220D3B900780628 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		B29980932220D96300780628 /* UITextFieldLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldLocalization.swift; sourceTree = "<group>"; };
+		B29980952220D98C00780628 /* UILabelLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelLocalization.swift; sourceTree = "<group>"; };
+		B29980972220D9A300780628 /* UIButtonLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonLocalization.swift; sourceTree = "<group>"; };
+		B29980992220D9CD00780628 /* NavigationItemLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemLocalization.swift; sourceTree = "<group>"; };
 		B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B2AD2FD72220B21800915275 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		B2AD2FD92220B48000915275 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +113,7 @@
 			children = (
 				745AF3A3221D359F00113399 /* InformationModels.swift */,
 				745AF3AA221D3D2700113399 /* Networking.swift */,
+				B299808E2220D0AE00780628 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +176,7 @@
 				110C3019221366DC00A5C038 /* User+CoreDataClass.swift */,
 				110C301A221366DC00A5C038 /* User+CoreDataProperties.swift */,
 				74B26FC021DA4D5500AAB239 /* AppDelegate.swift */,
+				B29980922220D94600780628 /* Localization */,
 				B29980822220BE8200780628 /* Helpers */,
 				B299807D2220BB2500780628 /* Extensions */,
 				B2AD2FD52220B1FD00915275 /* Views */,
@@ -197,6 +213,7 @@
 			children = (
 				B29980832220BE9000780628 /* StringHelper.swift */,
 				B29980852220C2B700780628 /* AlertPresenter.swift */,
+				B299808C2220CFFC00780628 /* DatebaseHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,6 +230,17 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B29980922220D94600780628 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B29980932220D96300780628 /* UITextFieldLocalization.swift */,
+				B29980952220D98C00780628 /* UILabelLocalization.swift */,
+				B29980972220D9A300780628 /* UIButtonLocalization.swift */,
+				B29980992220D9CD00780628 /* NavigationItemLocalization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		B2AD2FD52220B1FD00915275 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				B2AD2FD72220B21800915275 /* RoundedButton.swift */,
+				B29980902220D3B900780628 /* GradientView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -361,23 +390,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				748DEA6721DEBF1700AD8E70 /* SingleLectureViewController.swift in Sources */,
+				B29980912220D3B900780628 /* GradientView.swift in Sources */,
 				B2AD2FD82220B21800915275 /* RoundedButton.swift in Sources */,
 				B29980812220BBEB00780628 /* InputTableViewController.swift in Sources */,
 				B299807C2220B9CD00780628 /* RegistrationTableViewController.swift in Sources */,
 				748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */,
 				745AF3AB221D3D2700113399 /* Networking.swift in Sources */,
 				B29980882220C31C00780628 /* Localization.swift in Sources */,
+				B29980942220D96300780628 /* UITextFieldLocalization.swift in Sources */,
+				B29980962220D98C00780628 /* UILabelLocalization.swift in Sources */,
 				B299807F2220BB3900780628 /* UITextField+Extension.swift in Sources */,
 				745AF3A4221D359F00113399 /* InformationModels.swift in Sources */,
 				74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */,
+				B299808F2220D0AE00780628 /* User.swift in Sources */,
 				F2DF930321F1F44A00B5329E /* CoursesTypeViewCell.swift in Sources */,
 				B2AD2FDA2220B48000915275 /* LoginTableViewController.swift in Sources */,
 				745AF3AD221D428300113399 /* Alerts.swift in Sources */,
 				B29980842220BE9000780628 /* StringHelper.swift in Sources */,
 				7494C4D3221D7982007AA356 /* CourseViewCell.swift in Sources */,
 				748DEA6121DEBDD900AD8E70 /* CourseTypesViewController.swift in Sources */,
+				B29980982220D9A300780628 /* UIButtonLocalization.swift in Sources */,
 				B29980862220C2B700780628 /* AlertPresenter.swift in Sources */,
+				B299809A2220D9CD00780628 /* NavigationItemLocalization.swift in Sources */,
 				110C30182213662800A5C038 /* FMI App.xcdatamodeld in Sources */,
+				B299808D2220CFFC00780628 /* DatebaseHelper.swift in Sources */,
 				748DEA6321DEBE8000AD8E70 /* CoursesViewController.swift in Sources */,
 				740C94E7221DA8C8003B06DF /* LectureCell.swift in Sources */,
 			);

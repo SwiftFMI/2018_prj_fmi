@@ -23,8 +23,6 @@ class LoginTableViewController: InputTableViewController {
     var savedPassword: String? = nil
     var savedUid: String? = nil
 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,59 +49,23 @@ class LoginTableViewController: InputTableViewController {
     // MARK: - Private
 
     private func fetchUserInfo() {
-        let request = User.fetchRequest() as NSFetchRequest<NSFetchRequestResult>
-        do {
-            let result = try context.fetch(request)
-            if result.count > 1 {
-                // should be only 1 entry in the entity,
-                // we want to auto load it into the text fields
-                for data in result as! [NSManagedObject] {
-                    savedEmail = data.value(forKey: "email") as? String
-                    savedPassword = data.value(forKey: "password") as? String
-                    savedUid = data.value(forKey: "uid") as? String
-                }
-            }
-        } catch {
-            print("error fetching")
+        if let user = DatabaseHelper.shared.fetchUserInfo() {
+            savedUid = user.id
+            savedEmail = user.email
+            savedPassword = user.password
         }
     }
 
 
-    private func saveNewUser (email: String, password: String, uid: String) {
-        savedEmail = email
-        savedPassword = password
-        savedUid = uid
-
-        let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
-        let newUser = NSManagedObject(entity: entity!, insertInto: context)
-
-        newUser.setValue(email, forKey: "email")
-        newUser.setValue(password, forKey: "password")
-        newUser.setValue(uid, forKey: "uid")
-
-        do {
-            try context.save()
-        } catch {
-            print("could not save context after user insertion")
-        }
+    private func saveUser(email: String, password: String, uid: String) {
+        DatabaseHelper.shared.saveUser(email: email, password: password, uid: uid)
     }
 
 
     private func updateDatabase() {
-        let request = User.fetchRequest() as NSFetchRequest<NSFetchRequestResult>
-        do {
-            let result = try context.fetch(request)
-            if result.count > 1 {
-                // should be only 1 entry in the entity,
-                for data in result as! [NSManagedObject] {
-                    data.setValue(savedEmail, forKey: "email")
-                    data.setValue(savedPassword, forKey: "password")
-                    data.setValue(savedUid, forKey: "uid")
-                }
-            }
-        } catch {
-            print("error fetching")
-        }
+        DatabaseHelper.shared.updateUser(email: savedEmail,
+                                         id: savedUid,
+                                         password: savedPassword)
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -144,7 +106,7 @@ class LoginTableViewController: InputTableViewController {
                     strongSelf.updateDatabase()
                 }
             } else {
-                strongSelf.saveNewUser(email: email, password: password, uid: user.user.uid)
+                strongSelf.saveUser(email: email, password: password, uid: user.user.uid)
             }
 
             strongSelf.performSegue(withIdentifier: "loginSuccessfulSegue", sender: nil)

@@ -6,12 +6,23 @@
   Copyright © 2019 fmi-swift. All rights reserved.
 */
 
-"general_alert_heading" = "Opps";
+"general_alert_heading" = "Уууупс";
 "general_ok_button" = "OK";
 "general_cancel_button" = "Cancel";
-"empty_fields" = "You have empty fields, please fill them";
-"invalid_email" = "Your mail is invalid";
-"short_password" = "Too short password";
-"long_password" = "Too long password";
-"passwords_dont_match" = "Passwords don't match";
-"invalid_credentials" = "Invalid credentials";
+"empty_fields" = "Има празни полета";
+"invalid_email" = "Невалиден имейл";
+"short_password" = "Твърде кратка парола";
+"long_password" = "Твърде дълга парола";
+"passwords_dont_match" = "Паролите не съвпадат";
+"invalid_credentials" = "Невалидни данни";
+"courses_types" = "Типове курсове";
+"login_label" = "Вход";
+"textfield_placeholder_email" = "Имейл";
+"textfield_placeholder_password" = "Парола";
+"textfield_placeholder_confirm_password" = "Потвърди парола";
+"login_button" = "Влез";
+"register_label" = "Регистрация";
+"register_button" = "Регистрирай се";
+"courses_label" = "Курсове";
+"lections_label" = "Лекции";
+"lection_label" = "Лекция";
