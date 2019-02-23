@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  FMI App
+
+  Created by Hristiyan Zahariev on 23.02.19.
+  Copyright © 2019 fmi-swift. All rights reserved.
+*/
+
+"general_alert_heading" = "Opps";
+"general_ok_button" = "OK";
+"general_cancel_button" = "Cancel";
+"empty_fields" = "You have empty fields, please fill them";
+"invalid_email" = "Your mail is invalid";
+"short_password" = "Too short password";
+"long_password" = "Too long password";
+"passwords_dont_match" = "Passwords don't match";
+"invalid_credentials" = "Invalid credentials";

@@ -11,70 +11,77 @@ import FirebaseAuth
 import CoreData
 
 class RegistrationTableViewController: InputTableViewController {
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var passwordRepeatField: UITextField!
-    @IBOutlet weak var registerButton: UIButton!
 
-    let viewsCornerRadius : CGFloat = 30
-
-    let PASSWD_LEN_MIN = 8
-    let PASSWD_LEN_MAX = 64
-
-
-    @IBAction func onTapRegisterButton(_ sender: Any) {
-        if validateData() {
-            Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {
-                [weak self]
-                (authResult, error) in
-                guard let user = authResult?.user else {
-//                    self?.errorLabel.text = "Потребителят не може да бъде създаден!"
-                    return
-                }
-                self?.navigationController?.popViewController(animated: true)
-
-                if let loginVC = self?.navigationController?.topViewController as? LoginTableViewController {
-                    loginVC.savedUid = user.uid
-                    loginVC.savedEmail = user.email
-                    loginVC.savedPassword = self?.passwordField.text
-                }
-            }
-        }
+    private struct Password {
+        static let min = 8
+        static let max = 64
     }
 
-    func validateData() -> Bool {
-        guard let email = emailField.text, let password = passwordField.text, let passwordRepeated = passwordRepeatField.text else {
-//            errorLabel.text = "Полетата трябва да са попълнени!"
-//            errorLabel.alpha = 1
+    // MARK: - IBOutlet
+
+    @IBOutlet private weak var emailField: UITextField!
+    @IBOutlet private weak var passwordField: UITextField!
+    @IBOutlet private weak var passwordRepeatField: UITextField!
+    @IBOutlet private weak var registerButton: UIButton!
+
+    // MARK: - Private
+
+    private func isDataCorrect() -> Bool {
+        guard let email = emailField.text,
+            let password = passwordField.text,
+            let confirmPassword = passwordRepeatField.text,
+            !email.isEmpty,
+            !password.isEmpty,
+            !confirmPassword.isEmpty else {
+                AlertPresenter.showAlert(from: self, with: "empty_fields".localized)
+                return false
+        }
+        if !StringHelper.isValid(email: email) {
+            AlertPresenter.showAlert(from: self, with: "invalid_email".localized)
+            return false
+        } else if password.count < Password.min {
+            AlertPresenter.showAlert(from: self, with: "short_password".localized)
+            return false
+        } else if password.count > Password.max {
+            AlertPresenter.showAlert(from: self, with: "long_password")
+            return false
+        } else if password != confirmPassword {
+            AlertPresenter.showAlert(from: self, with: "passwords_dont_match")
             return false
         }
-
-        var errorMessage: String = ""
-
-        if !email.isValidEmail() {
-            errorMessage = "Въведеният имейл е невалиден!"
-        } else if password.count < PASSWD_LEN_MIN {
-            errorMessage = "Паролата е твърде кратка!"
-        } else if password.count > PASSWD_LEN_MAX {
-            errorMessage = "Паролата е твърде дълга!"
-        } else if password != passwordRepeated {
-            errorMessage = "Паролите не съвпадат!"
-        }
-
-//        errorLabel.text = errorMessage
-//        errorLabel.alpha = errorMessage == "" ? 0 : 1
-        return errorMessage == ""
-
+        return true
     }
+
+    // MARK: - IBAction
 
     @IBAction func tapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-}
 
-extension String {
-    func isValidEmail() -> Bool {
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
+    @IBAction func onTapRegisterButton(_ sender: Any) {
+        guard isDataCorrect() else {
+            return
+        }
+        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {
+            [weak self]
+            (authResult, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            if let error = error {
+                AlertPresenter.showAlert(from: strongSelf, with: error.localizedDescription)
+                return
+            }
+            guard let user = authResult?.user else {
+                return
+            }
+            strongSelf.navigationController?.popViewController(animated: true)
+
+            if let loginVC = strongSelf.navigationController?.topViewController as? LoginTableViewController {
+                loginVC.savedUid = user.uid
+                loginVC.savedEmail = user.email
+                loginVC.savedPassword = self?.passwordField.text
+            }
+        }
     }
 }

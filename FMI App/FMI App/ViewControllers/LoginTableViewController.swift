@@ -12,7 +12,9 @@ import CoreData
 
 class LoginTableViewController: InputTableViewController {
 
-    @IBOutlet weak var emailField: UITextField!
+    // MARK: - IBOutlet
+
+    @IBOutlet private weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
 
     var selectedSectionId: Int? = nil
@@ -36,7 +38,19 @@ class LoginTableViewController: InputTableViewController {
         passwordField.text = savedPassword
     }
 
-    func fetchUserInfo() {
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginSuccessfulSegue" {
+            if let destinationViewController = segue.destination as? CoursesViewController {
+                destinationViewController.selectedSectionId = self.selectedSectionId
+            }
+        }
+    }
+
+    // MARK: - Private
+
+    private func fetchUserInfo() {
         let request = User.fetchRequest() as NSFetchRequest<NSFetchRequestResult>
         do {
             let result = try context.fetch(request)
@@ -55,7 +69,7 @@ class LoginTableViewController: InputTableViewController {
     }
 
 
-    func saveNewUser (email: String, password: String, uid: String) {
+    private func saveNewUser (email: String, password: String, uid: String) {
         savedEmail = email
         savedPassword = password
         savedUid = uid
@@ -75,7 +89,7 @@ class LoginTableViewController: InputTableViewController {
     }
 
 
-    func updateDatabase() {
+    private func updateDatabase() {
         let request = User.fetchRequest() as NSFetchRequest<NSFetchRequestResult>
         do {
             let result = try context.fetch(request)
@@ -92,56 +106,48 @@ class LoginTableViewController: InputTableViewController {
         }
     }
 
-    @IBAction func didTapToEndInput(_ sender: Any) {
-        view.endEditing(true)
-    }
-
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return identifier != "loginSuccessfulSegue"
     }
 
-    @IBAction func onTapLoginWithEmail(_ sender: Any) {
-        guard let email = emailField.text, let password = passwordField.text
-            else {
-//                errorLabelLogin.text = "Моля попълнете полетата за влизане чрез имейл!"
-//                errorLabelLogin.alpha = 1
-                return
-        }
-
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self]
-            (authDataResult, error) in
-            guard let user = authDataResult else {
-//                self?.errorLabelLogin.text = "Невалидни имейл или парола!"
-//                self?.errorLabelLogin.alpha = 1
-                return
-            }
-
-
-            if let lastUid = self?.savedUid {
-                if user.user.uid != lastUid {
-                    self?.savedEmail = email
-                    self?.savedPassword = password
-                    self?.savedUid = user.user.uid
-                    self?.updateDatabase()
-                }
-            } else {
-                self?.saveNewUser(email: email, password: password, uid: user.user.uid)
-            }
-
-            self?.performSegue(withIdentifier: "loginSuccessfulSegue", sender: nil)
-        }
-    }
-
+    // MARK: - IBAction
 
     @IBAction func tapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loginSuccessfulSegue" {
-            if let destinationViewController = segue.destination as? CoursesViewController {
-                destinationViewController.selectedSectionId = self.selectedSectionId
+    @IBAction func onTapLoginWithEmail(_ sender: Any) {
+        guard let email = emailField.text,
+            let password = passwordField.text,
+            !email.isEmpty,
+            !password.isEmpty else {
+                AlertPresenter.showAlert(from: self, with: "empty_fields".localized)
+                return
+        }
+
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self]
+            (authDataResult, error) in
+            guard let strongSelf = self else {
+                return
             }
+            guard let user = authDataResult else {
+                AlertPresenter.showAlert(from: strongSelf, with: "invalid_credentials".localized)
+                return
+            }
+
+
+            if let lastUid = strongSelf.savedUid {
+                if user.user.uid != lastUid {
+                    strongSelf.savedEmail = email
+                    strongSelf.savedPassword = password
+                    strongSelf.savedUid = user.user.uid
+                    strongSelf.updateDatabase()
+                }
+            } else {
+                strongSelf.saveNewUser(email: email, password: password, uid: user.user.uid)
+            }
+
+            strongSelf.performSegue(withIdentifier: "loginSuccessfulSegue", sender: nil)
         }
     }
 }

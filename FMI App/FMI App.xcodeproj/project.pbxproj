@@ -26,6 +26,10 @@
 		B299807C2220B9CD00780628 /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299807B2220B9CD00780628 /* RegistrationTableViewController.swift */; };
 		B299807F2220BB3900780628 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B299807E2220BB3900780628 /* UITextField+Extension.swift */; };
 		B29980812220BBEB00780628 /* InputTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980802220BBEB00780628 /* InputTableViewController.swift */; };
+		B29980842220BE9000780628 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980832220BE9000780628 /* StringHelper.swift */; };
+		B29980862220C2B700780628 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980852220C2B700780628 /* AlertPresenter.swift */; };
+		B29980882220C31C00780628 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29980872220C31C00780628 /* Localization.swift */; };
+		B299808B2220C37D00780628 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B299808A2220C37D00780628 /* Localizable.strings */; };
 		B2AD2FD42220AF2F00915275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */; };
 		B2AD2FD82220B21800915275 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AD2FD72220B21800915275 /* RoundedButton.swift */; };
 		B2AD2FDA2220B48000915275 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AD2FD92220B48000915275 /* LoginTableViewController.swift */; };
@@ -57,6 +61,10 @@
 		B299807B2220B9CD00780628 /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
 		B299807E2220BB3900780628 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B29980802220BBEB00780628 /* InputTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTableViewController.swift; sourceTree = "<group>"; };
+		B29980832220BE9000780628 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		B29980852220C2B700780628 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		B29980872220C31C00780628 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		B299808A2220C37D00780628 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B2AD2FD72220B21800915275 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		B2AD2FD92220B48000915275 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
@@ -150,19 +158,17 @@
 		74B26FBF21DA4D5500AAB239 /* FMI App */ = {
 			isa = PBXGroup;
 			children = (
-				B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */,
 				110C3019221366DC00A5C038 /* User+CoreDataClass.swift */,
 				110C301A221366DC00A5C038 /* User+CoreDataProperties.swift */,
-				74B26FC721DA4D5800AAB239 /* Assets.xcassets */,
 				74B26FC021DA4D5500AAB239 /* AppDelegate.swift */,
+				B29980822220BE8200780628 /* Helpers */,
 				B299807D2220BB2500780628 /* Extensions */,
 				B2AD2FD52220B1FD00915275 /* Views */,
 				11BA0CC522185484008B3470 /* ViewControllers */,
-				74B26FC421DA4D5500AAB239 /* Main.storyboard */,
-				74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */,
 				11BA0CC422185465008B3470 /* Models */,
 				11BA0CC622185C79008B3470 /* JSONs */,
-				74B26FCC21DA4D5800AAB239 /* Info.plist */,
+				B29980892220C34900780628 /* Supporting Files */,
+				74B26FC421DA4D5500AAB239 /* Main.storyboard */,
 				110C30162213662800A5C038 /* FMI App.xcdatamodeld */,
 			);
 			path = "FMI App";
@@ -181,8 +187,30 @@
 			isa = PBXGroup;
 			children = (
 				B299807E2220BB3900780628 /* UITextField+Extension.swift */,
+				B29980872220C31C00780628 /* Localization.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B29980822220BE8200780628 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B29980832220BE9000780628 /* StringHelper.swift */,
+				B29980852220C2B700780628 /* AlertPresenter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B29980892220C34900780628 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				74B26FC721DA4D5800AAB239 /* Assets.xcassets */,
+				74B26FCC21DA4D5800AAB239 /* Info.plist */,
+				B2AD2FD32220AF2E00915275 /* GoogleService-Info.plist */,
+				74B26FC921DA4D5800AAB239 /* LaunchScreen.storyboard */,
+				B299808A2220C37D00780628 /* Localizable.strings */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B2AD2FD52220B1FD00915275 /* Views */ = {
@@ -265,6 +293,7 @@
 				74B26FCB21DA4D5800AAB239 /* LaunchScreen.storyboard in Resources */,
 				74B26FC821DA4D5800AAB239 /* Assets.xcassets in Resources */,
 				F24D237721DD19AB007FA27D /* Media.xcassets in Resources */,
+				B299808B2220C37D00780628 /* Localizable.strings in Resources */,
 				74B26FC621DA4D5500AAB239 /* Main.storyboard in Resources */,
 				11BA0CC822185CA4008B3470 /* sections.json in Resources */,
 				B2AD2FD42220AF2F00915275 /* GoogleService-Info.plist in Resources */,
@@ -337,14 +366,17 @@
 				B299807C2220B9CD00780628 /* RegistrationTableViewController.swift in Sources */,
 				748DEA6521DEBECD00AD8E70 /* LecturesViewController.swift in Sources */,
 				745AF3AB221D3D2700113399 /* Networking.swift in Sources */,
+				B29980882220C31C00780628 /* Localization.swift in Sources */,
 				B299807F2220BB3900780628 /* UITextField+Extension.swift in Sources */,
 				745AF3A4221D359F00113399 /* InformationModels.swift in Sources */,
 				74B26FC121DA4D5500AAB239 /* AppDelegate.swift in Sources */,
 				F2DF930321F1F44A00B5329E /* CoursesTypeViewCell.swift in Sources */,
 				B2AD2FDA2220B48000915275 /* LoginTableViewController.swift in Sources */,
 				745AF3AD221D428300113399 /* Alerts.swift in Sources */,
+				B29980842220BE9000780628 /* StringHelper.swift in Sources */,
 				7494C4D3221D7982007AA356 /* CourseViewCell.swift in Sources */,
 				748DEA6121DEBDD900AD8E70 /* CourseTypesViewController.swift in Sources */,
+				B29980862220C2B700780628 /* AlertPresenter.swift in Sources */,
 				110C30182213662800A5C038 /* FMI App.xcdatamodeld in Sources */,
 				748DEA6321DEBE8000AD8E70 /* CoursesViewController.swift in Sources */,
 				740C94E7221DA8C8003B06DF /* LectureCell.swift in Sources */,
@@ -496,7 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2L24TQ8W95;
-				INFOPLIST_FILE = "FMI App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/FMI App/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -516,7 +548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2L24TQ8W95;
-				INFOPLIST_FILE = "FMI App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/FMI App/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
